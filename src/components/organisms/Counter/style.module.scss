@@ -1,0 +1,62 @@
+@import '../../../styles/function.scss';
+
+.start {
+	width: #{map-get($siteWidth,novelW) + 20};
+	height: #{map-get($siteWidth,novelH-wrap) + 20};
+	background-color: #{map-get($siteColor,black)};
+  display: grid;
+  place-items: center;
+}
+
+.counter {
+  margin-top: 30px;
+  max-width: #{map-get($siteWidth,novelH-wrap) + 20};
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
+  ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    li {
+      flex-grow: 1;
+      button {
+        all: unset;
+        border: solid 2px #{map-get($siteColor,font)};
+        padding: 20px 10px;
+        cursor: pointer;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+}
+
+
+.error {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.7);
+  display: grid;
+  place-items: center;
+  z-index: #{map-get($siteZindex,error)};
+  text-align: center;
+
+  p {
+    margin-top: 0;
+    font-weight: 700;
+  }
+}

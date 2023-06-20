@@ -1,0 +1,35 @@
+@import '../../../styles/function.scss';
+
+.group {
+    width: #{map-get($siteWidth,novelW)};
+    height: #{map-get($siteWidth,novelH)};
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+.after,
+.before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    z-index: 1;
+}
+
+[data-animate="true"].after,
+[data-animate="true"].before {
+    animation-name: fade;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

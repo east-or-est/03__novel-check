@@ -1,0 +1,25 @@
+@import '../../../styles/function.scss';
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    width: #{map-get($siteWidth,novelW)};
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+
+    li {
+        width: 20%;
+
+        button {
+            all: unset;
+            width: 100%;
+            height: auto;
+            
+            &:hover {
+                opacity: .6;
+                cursor: pointer;
+            }
+        }
+    }
+}

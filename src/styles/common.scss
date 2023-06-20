@@ -1,0 +1,164 @@
+@import 'function.scss';
+
+/* ------------------------------------
+* リセット
+------------------------------------ */
+html { -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-box-shadow: none; box-shadow: none; outline: none; }
+html, body, ul, ol, li, dl, dt, dd, p, h1, h2, h3, h4, h5, h6, figure, summary, blockquote, pre, code { padding: 0; margin: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+br { line-height: 1em; }
+ol, ul { list-style: none; }
+body { line-height: 1; }
+hr { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+figure { line-height: 0; }
+figcaption { line-height: normal; }
+
+
+/* ------------------------------------
+* デフォルトスタイル
+------------------------------------ */
+body {
+    overflow-x: hidden;
+    color: #{map-get($siteColor,font)};
+    @include FontSize();
+    background-color: #{map-get($siteColor,bg)};
+}
+body,
+.ja {
+    font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+.en {
+    font-family: 'Arial';
+}
+.none {
+    display: none !important;
+}
+@include spMin {
+    .sp {
+        display: none;
+    }
+}
+@include spMax {
+    body {
+        @include FontSize(16);
+    }
+    .pc {
+        display: none;
+    }
+}
+main p a {
+    word-break: break-all;
+}
+
+/*=========================*/
+
+li, dt, dd {
+    line-height: 1.4;
+}
+li, dt, dd, h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+}
+
+/*=========================*/
+
+p,
+a,
+dt,
+dd,
+li {
+    letter-spacing: 0.02em;
+}
+strong,
+span {
+    letter-spacing: inherit;
+}
+em {
+    color: #{map-get($siteColor,main)};
+    font-style: normal;
+}
+pre {
+    box-sizing: border-box;
+    background-color: #{map-get($siteColor,bg-code)};
+    padding: 30px 20px;
+    color: #{map-get($siteColor,font-code)};
+    code {
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.2;
+    }
+}
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: none;
+    height: 2px;
+    background-color: #{map-get($siteColor,gray-3)};
+    + * {
+        margin-top: 0 !important;
+    }
+}
+.font-normal {
+    font-weight: 400 !important;
+}
+.font-bold {
+    font-weight: 700 !important;
+}
+ol {
+    list-style: decimal-leading-zero;
+    margin-left: 2em;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    li {
+        white-space: pre-wrap;
+        + li {
+            margin-top: 10px;
+        }
+    }
+}
+blockquote {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px 0 10px 20px;
+    box-sizing: border-box;
+    border-left: solid 5px #{map-get($siteColor,gray-3)};
+}
+
+p {
+    line-height: 1.6;
+}
+p:first-child {
+    margin-top: 0;
+}
+@include spMax {
+    p {
+        margin-top: 40px;
+    }
+}
+@include spMin {
+    p {
+        margin-top: 40px;
+    }
+    [href^="tel"] {
+        pointer-events: none;
+    }
+}
+
+/*=========================*/
+
+a {
+    color: #{map-get($siteColor,font)};
+}
+
+a[href=""] {
+    pointer-events: none !important;
+}
+
+/*=========================*/
+
+.tc {
+    text-align: center !important;
+}
+.tl {
+    text-align: left !important;
+}

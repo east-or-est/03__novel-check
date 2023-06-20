@@ -1,0 +1,40 @@
+@import '../../../styles/function.scss';
+
+.li {
+	cursor: pointer;
+}
+
+.section {
+	max-width: #{map-get($siteWidth,novelW) + 20};
+	width: 100%;
+
+	+ .section {
+		margin-top: 40px;
+		padding-top: 40px;
+		border-top: dashed 1px #{map-get($siteColor,gray)};
+	}
+
+	display: flex;
+
+
+	h2 {
+		padding-bottom: 10px;
+		width: 240px;
+		flex-shrink: 0;
+		@include FontSize(20);
+	}
+
+	ul {
+		list-style: circle;
+		margin-left: 1.5em;
+
+		li {
+			&:hover {
+				text-decoration: underline;
+			}
+			+ li {
+				margin-top: 15px;
+			}
+		}
+	}
+}
