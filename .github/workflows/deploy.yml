@@ -18,22 +18,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Test
-        run: npm cache clean --force
           
       - name: Cache
         uses: actions/cache@v3
+        id: node_modules
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-${{ steps.node.outputs.version }}
       
       - name: Build
         run: |
-          npm ci
-          npm run build --if-present
+          yarn install
+          yarn build
           
       - name: SSH Key Generate
         run: |
