@@ -25,7 +25,6 @@ function NovelNumList({ firstSel, groupSel } : NovelNumListProps) {
 
   const handleClickSel = ( num: string ) => {
     navigate(`${process.env.PUBLIC_URL}/posts/${num}/`,{state: { sel: num, first: firstSel, list: groupSel, loaded: true } })
-    
   }
 
   return (
