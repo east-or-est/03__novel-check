@@ -28,6 +28,9 @@ jobs:
           key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}-${{ steps.node.outputs.version }}
       
       - name: Build
+        env: 
+          REACT_APP_TITLE: ${{ secrets.REACT_APP_TITLE }}
+          REACT_APP_SUB_TITLE: ${{ secrets.REACT_APP_SUB_TITLE }}
         run: |
           yarn install
           yarn build
